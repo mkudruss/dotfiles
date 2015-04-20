@@ -1,0 +1,251 @@
+# i3 config file
+# Author:   Manuel Kudruss
+# Email:    manuel.kudruss@iwr.uni-heidelberg.de
+
+# set i3 mod key
+# Mod1 = ALT key
+# Mod4 = Windows key
+#set $mod Mod1
+set $mod Mod4
+
+# multi monitor setup
+set $mainoutput LVDS1
+
+# focus follows mouse
+focus_follows_mouse no
+
+# font for window titles. ISO 10646 = Unicode
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font xft:Ubuntu Monospace 9
+
+# colours
+#colourclass                border    bckgrnd    text
+#client.focused             #97FF6E    #97FF6E    #000000
+#client.focused_inactive    #97FF6E    #000000    #FFFFFF
+#client.unfocused           #333333    #333333    #666666
+#client.urgent              #FF0000    #8C5665    #FF0000
+
+# startup apps and window decorations
+default_orientation horizontal
+new_window 1pixel
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -nb '#000000' -nf '#ffffff' -sb '#CD5728' -fn 'Ubuntu mono-12'
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
+
+# move focused window
+bindsym $mod+Shift+J move left
+bindsym $mod+Shift+K move down
+bindsym $mod+Shift+L move up
+bindsym $mod+Shift+Odiaeresis move right
+
+# Put this window on the presentation output.
+bindsym $mod+p move workspace to output VGA1
+bindsym $mod+Shift+p move workspace to output HDMI3
+
+# Put this window on the internal output.
+bindsym $mod+i move workspace to output $mainoutput
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+Shift+a focus parent
+
+# focus the child container
+bindsym $mod+Shift+d focus child
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+F1  workspace 11
+bindsym $mod+F2  workspace 12
+bindsym $mod+F3  workspace 13
+bindsym $mod+F4  workspace 14
+bindsym $mod+F5  workspace 15
+bindsym $mod+F6  workspace 16
+bindsym $mod+F7  workspace 17
+bindsym $mod+F8  workspace 18
+bindsym $mod+F9  workspace 19
+bindsym $mod+F10 workspace 20
+
+# move focused container to workspace
+bindsym $mod+Shift+exclam move workspace 1
+bindsym $mod+Shift+quotedbl move workspace 2
+bindsym $mod+Shift+section move workspace 3
+bindsym $mod+Shift+dollar move workspace 4
+bindsym $mod+Shift+percent move workspace 5
+bindsym $mod+Shift+ampersand move workspace 6
+bindsym $mod+Shift+slash move workspace 7
+bindsym $mod+Shift+parenleft move workspace 8
+bindsym $mod+Shift+parenright move workspace 9
+bindsym $mod+Shift+equal move workspace 10
+
+bindsym $mod+Shift+F1  move workspace 11
+bindsym $mod+Shift+F2  move workspace 12
+bindsym $mod+Shift+F3  move workspace 13
+bindsym $mod+Shift+F4  move workspace 14
+bindsym $mod+Shift+F5  move workspace 15
+bindsym $mod+Shift+F6  move workspace 16
+bindsym $mod+Shift+F7  move workspace 17
+bindsym $mod+Shift+F8  move workspace 18
+bindsym $mod+Shift+F9  move workspace 19
+bindsym $mod+Shift+F10 move workspace 20
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+Escape exit
+
+# define x230 special keys
+#bindsym XF86Sleep exec suspendandlock
+#bindsym XF86ScreenSaver exec i3lock -nd -p default -c 000000 -i /usr/share/backgrounds/Winter_Morning_by_Shannon_Lucas.png
+
+# monitor rules for workspaces
+workspace 1 output $mainoutput
+workspace 10 output $mainoutput
+
+# window rules for workspaces
+#assign [class="Firefox"] → 2
+#assign [class="Gnome-terminal"] → 2
+#assign [class="Gvim"] → 2
+#assign [class="Fpm2"] → 10
+assign [class="Chromium"] → 10
+assign [class="Thunderbird"] → 10
+assign [class="Steam"] → 20
+assign [title="Guake!"] → current
+
+# window rules
+for_window [title="Guake!"] floating enable, move workspace current
+for_window [title="Rhythmbox"] move scratchpad
+#for_window [title="Keepassx"] move scratchpad
+# put pop-ups always to floating mode
+for_window [window_role="pop-up"] floating enable
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+# These bindings trigger as soon as you enter the resize mode
+
+# They resize the border in the direction you pressed, e.g.
+# when pressing left, the window is resized so that it has
+# more space on its left
+
+    bindsym j resize shrink left 10 px or 10 ppt
+        bindsym Shift+J resize grow   left 10 px or 10 ppt
+
+        bindsym k resize shrink down 10 px or 10 ppt
+        bindsym Shift+K resize grow   down 10 px or 10 ppt
+
+        bindsym l resize shrink up 10 px or 10 ppt
+        bindsym Shift+L resize grow   up 10 px or 10 ppt
+
+        bindsym odiaeresis resize shrink right 10 px or 10 ppt
+        bindsym Shift+Odiaeresis resize grow   right 10 px or 10 ppt
+
+# back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar plus the system information i3status
+# MAIN BAR
+bar {
+        # define bar id
+        id bar-0
+
+        # define mode of bar
+        mode dock         #<dock|hide|invisible>
+        #hidden_state hide #<hide|show>
+        #modifier $mod
+
+        # show bar on Laptop only
+        #output $mainoutput
+
+        # show tray icons on the primary monitor
+        tray_output $mainoutput
+
+        # config
+        workspace_buttons yes
+
+        # style
+        font xft:Ubuntu Monospace 9
+        #colors {
+        #        # class            border  backgrd text
+        #        #focused_workspace       #99ff99 #303030
+        #        #active_workspace        #333333 #5f676a
+        #        #inactive_workspace      #999999 #202020
+        #        #urgent_workspace        #da6f00 #404040
+        #}
+
+        status_command i3status
+}
+
+# class                  border  backgrd text
+#client.focused          #D12C8D #908C8C #ffffff
+#client.focused_inactive #0F0F0F #a09999 #E5E5E5
+#client.unfocused        #0F0F0F #716d6d #E5E5E5
+#client.urgent           #0F0F0F #BC9B54 #E5E5E5
+
+# startup applications
+exec guake
+exec --no-startup-id /usr/bin/gnome-settings-daemon
+exec --no-startup-id /usr/bin/unity-settings-daemon
+exec gsettings set org.gnome.desktop.background show-desktop-icons false
+exec --no-startup-id nm-applet
+exec --no-startup-id export $(gnome-keyring-daemon)
+#exec --no-startup-id gtg
+#exec --no-startup-id hamster-indicator
+exec --no-startup-id touchpad-indicator
+#exec --no-startup-id i3-msg 'workspace 20; exec deja-dup --backup; workspace 1'
+

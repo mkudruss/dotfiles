@@ -1,0 +1,15 @@
+[ui]
+# Name data to appear in commits
+username = Manuel Kudruss <manuel.kudruss@iwr.uni-heidelberg.de>
+
+[hostfingerprints]
+orb.iwr.uni-heidelberg.de = 51:64:D5:CA:3A:A3:23:0B:29:76:AA:17:F4:34:E8:E2:87:D9:68:0D
+liz.iwr.uni-heidelberg.de = A3:CD:C4:F6:BB:FA:17:B7:EB:48:E4:A8:22:4C:05:FE:85:B9:14:5F
+orb.iwr.uni-heidelberg.de = c3:25:ce:80:07:39:83:41:5c:d5:c1:92:94:46:2c:94:b9:d5:91:f5
+
+
+[extensions]
+mercurial_keyring =
+purge =
+record =
+shelve =

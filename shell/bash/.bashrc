@@ -99,7 +99,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # source .profile
-#source ~/.profile
+. ${HOME}/.profile
+#. ${HOME}/.profile
 
 # Fucking GVIM bug
 alias gvim='UBUNTU_MENUPROXY= gvim'

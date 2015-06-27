@@ -239,9 +239,9 @@ bar {
 
 # startup applications
 exec guake
-exec --no-startup-id /usr/bin/gnome-settings-daemon
-exec --no-startup-id /usr/bin/unity-settings-daemon
-exec gsettings set org.gnome.desktop.background show-desktop-icons false
+exec --no-startup-id /usr/bin/gnome-settings-daemon -r
+#exec --no-startup-id /usr/bin/unity-settings-daemon
+#exec gsettings set org.gnome.desktop.background show-desktop-icons false
 exec --no-startup-id nm-applet
 exec --no-startup-id export $(gnome-keyring-daemon)
 #exec --no-startup-id gtg

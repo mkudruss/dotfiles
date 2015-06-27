@@ -99,7 +99,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # source .profile
-. ${HOME}/.profile
+#. ${HOME}/.profile
 #. ${HOME}/.profile
 
 # Fucking GVIM bug
@@ -107,3 +107,6 @@ alias gvim='UBUNTU_MENUPROXY= gvim'
 
 # disable limit for ADIFOR
 ulimit -s unlimited
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

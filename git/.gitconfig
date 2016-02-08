@@ -43,3 +43,5 @@
 	keepBackup = false
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+[http "https://mkudruss@liz.iwr.uni-heidelberg.de"]
+	sslCAInfo = /home/mkudruss/.IWR-CA2.pem.crt

@@ -60,19 +60,20 @@ export MUSCOD_SUITE_BASE=$HOME/software/muscod
 export MUSCODDIR=$MUSCOD_SUITE_BASE
 export SUITE_DIR=$MUSCOD_SUITE_BASE
 
-export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Debug/bin
 export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Release/bin
+export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Debug/bin
 
 # Debug MUSCOD PYTHON INTERFACE
 export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/lib64
 export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/PYTHON
 
 # Release MUSCOD PYTHON INTERFACE
-#export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/lib64
-#export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/PYTHON
+# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/lib64
+# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/PYTHON
 
 # PGPLOT
 export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Debug
+# export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Release
 export PGPLOT_FONT=$PGPLOT_DIR/grfont.dat
 export PGPLOT_RGB=$PGPLOT_DIR/rgb.txt
 export PATH=$PATH:$PGPLOT_DIR
@@ -126,3 +127,6 @@ export PATH=$PATH:$HOME/software/android-sdk-linux/platform-tools
 
 # DYNAMOD Environment
 #source /home/mkudruss/software/DYNAMOD/bin/env/DYNAMOD_env
+
+# LEO compiler
+export PATH=$PATH:/home/mkudruss/software/leo_robot/tools/crosstool/gcc-4.1.0-glibc-2.3.6/i686-unknown-linux-gnu/bin/

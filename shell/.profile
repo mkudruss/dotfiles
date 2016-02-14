@@ -27,6 +27,11 @@ echo "Loading .profile"
 # exporting PGP key
 export GPGKEY=5C38081A
 
+# exporting PGP key
+export LANGUAGE="en"
+export LANG="C"
+export LC_MESSAGES="C"
+
 # Python Start Up File
 export PYTHONPATH=$PYTHONPATH:~/workspace/python/myprojects
 export PYTHONPATH=$PYTHONPATH:~/software/vplan/git_trunk/python

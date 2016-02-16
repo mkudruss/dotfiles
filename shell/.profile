@@ -24,6 +24,14 @@ fi
 # LOADING PROMPT
 echo "Loading .profile"
 
+# tell D-Bus to use the keyring on the machine's graphical login
+if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
+    if [[ -f ~/.dbus/session-bus/$(dbus-uuidgen --get)-0 ]]; then
+        source ~/.dbus/session-bus/$(dbus-uuidgen --get)-0
+        export DBUS_SESSION_BUS_ADDRESS
+    fi
+fi
+
 # exporting PGP key
 export GPGKEY=5C38081A
 

@@ -3,9 +3,9 @@
 # CONVENIENCE FUNCTIONS # ----------------------------------------------------
 
 function check_and_backup () {
-	if [ -h ${1} ] 
+	if [ -h ${1} ]
 	then
-		if [ -f ${1} ] 
+		if [ -f ${1} ]
 		then
 			echo "file '${1}' exists and is renamed to '${1}.bak'."
 			mv ${1} ${1}.bak
@@ -14,17 +14,17 @@ function check_and_backup () {
 			echo "file '$1' does not exist no backup will be created."
 			return -1
 		fi
-	else 
+	else
 		echo "file '$1' is a symlink nothing is done."
 		return -1
 	fi
 }
 
 function symlink_dotfile () {
-	if [ -f ${1} ] 
+	if [ -f ${1} ]
 	then
 		echo "found dotfile '${1}'"
-		if ! [ -h ${2} ] || ! [ -f ${2} ] 
+		if ! [ -h ${2} ] || ! [ -f ${2} ]
 		then
 			echo "creating symlink:"
 			echo "ln -s ${1} ${2}"
@@ -125,7 +125,7 @@ echo ""
 # declare -a NAMES=(".zshrc")
 # SRCDIR="workspace/dotfiles/shell/zsh/"
 # DSTDIR=""
-# 
+#
 # # now loop through the above array
 # for NAME in "${NAMES[@]}"
 # do
@@ -136,7 +136,7 @@ echo ""
 # 	# backup bash files
 # 	check_and_backup ${DST}
 # 	# setup bash files
-	symlink_dotfile ${SRC} ${DST}# 
+	symlink_dotfile ${SRC} ${DST}#
 # done
 # echo ""
 # SCREEN # -------------------------------------------------------------------
@@ -181,7 +181,7 @@ do
 	symlink_dotfile ${SRC} ${DST}
 done
 echo ""
-# BASH 
+# BASH
 SOURCE="zsh"
 echo "'${SOURCE}' dotfiles:"
 # declare variable names
@@ -202,12 +202,33 @@ do
 	symlink_dotfile ${SRC} ${DST}
 done
 echo ""
-# ZSH 
+# ZSH
 SOURCE="zsh"
 echo "'${SOURCE}' dotfiles:"
 # declare variable names
 declare -a NAMES=(".zshrc")
 SRCDIR="workspace/dotfiles/shell/zsh/"
+DSTDIR=""
+
+# now loop through the above array
+for NAME in "${NAMES[@]}"
+do
+	echo "${NAME}:"
+	# assemble SRC and DST
+	SRC="${HOME}/${SRCDIR}${NAME}"
+	DST="${HOME}/${DSTDIR}${NAME}"
+	# backup bash files
+	check_and_backup ${DST}
+	# setup bash files
+	symlink_dotfile ${SRC} ${DST}
+done
+echo ""
+# VIM # -------------------------------------------------------------------
+SOURCE="tmux"
+echo "'${SOURCE}' dotfiles:"
+# declare variable names
+declare -a NAMES=(".tmux.conf")
+SRCDIR="workspace/dotfiles/tmux/"
 DSTDIR=""
 
 # now loop through the above array

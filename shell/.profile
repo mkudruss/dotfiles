@@ -12,13 +12,13 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-    . "$HOME/.bashrc"
+	. "$HOME/.bashrc"
     fi
 fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 fi
 
 # LOADING PROMPT
@@ -33,12 +33,12 @@ if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
 fi
 
 # exporting PGP key
-export GPGKEY=5C38081A
+# export GPGKEY=5C38081A
 
 # exporting PGP key
-export LANGUAGE="en"
-export LANG="C"
-export LC_MESSAGES="C"
+# export LANGUAGE="en"
+# export LANG="C"
+# export LC_MESSAGES="C"
 
 # Python Start Up File
 export PYTHONPATH=$PYTHONPATH:~/workspace/python/myprojects
@@ -55,6 +55,12 @@ export PYTHONPATH=$PYTHONPATH:~/software/snopt7/python
 # nlopt PATH
 export PYTHONPATH=$PYTHONPATH:~/software/nlopt-2.3/swig/.libs
 
+# msobox PATH
+export PYTHONPATH=$PYTHONPATH:~/software/msobox
+
+# lpnewton PATH
+export PYTHONPATH=$PYTHONPATH:~/software/lpnewton
+
 # ADOLC Bashvariablen
 #export ADOLC_BASE=~/software/adolc_base
 
@@ -64,14 +70,17 @@ export PATH=$HOME/workspace/work/isios_scriptsuite/bin:$PATH
 export PATH=$HOME/software/vplan/examples/quadcopter2d/realtime/bin:$PATH
 
 # Gurobi Bashvariablen
-export GUROBI_HOME="/opt/gurobi550/linux64"
+export GUROBI_HOME="/home/mkudruss/software/gurobi651/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
+export GRB_LICENSE_FILE="${GUROBI_HOME}/bin/gurobi.lic"
 
 # MUSCOD Bashvariablen
 export MUSCOD_SUITE_BASE=$HOME/software/muscod
 export MUSCODDIR=$MUSCOD_SUITE_BASE
 export SUITE_DIR=$MUSCOD_SUITE_BASE
+
+export QORE_DIR=$HOME/software/muscod/Packages/QORE/Debug
 
 export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Release/bin
 export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Debug/bin
@@ -85,8 +94,8 @@ export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/PYTHO
 # export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/PYTHON
 
 # PGPLOT
-export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Debug
-# export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Release
+# export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Debug
+export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Release
 export PGPLOT_FONT=$PGPLOT_DIR/grfont.dat
 export PGPLOT_RGB=$PGPLOT_DIR/rgb.txt
 export PATH=$PATH:$PGPLOT_DIR
@@ -99,11 +108,11 @@ export MESHUP_PATH=$HOME/software/meshup/
 #export RBDL_PATH=$HOME/software/rbdl/
 
 # virtualenv bash variables
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+if [ -f /etc/bash_completion.d/virtualenvwrapper ]
 then
     export WORKON_HOME="$HOME/.virtualenvs"
     export PROJECT_HOME="$HOME/projects"
-    source /usr/local/bin/virtualenvwrapper.sh
+    source /etc/bash_completion.d/virtualenvwrapper
 else
     echo "not installed: 'virtualenv'"
     echo "not installed: 'virtualenvwrapper'"
@@ -128,7 +137,7 @@ export PATH=$PATH:$AD_HOME/bin
 
 # TAPENADE Bashvariablen
 export JAVA_HOME=/usr
-export TAPENADE_HOME=$VPLANHOME/lib/tapenade3.6
+export TAPENADE_HOME=~/software/tapenade3.6
 export PATH=$TAPENADE_HOME/bin:$PATH
 
 # Added by the Heroku Toolbelt

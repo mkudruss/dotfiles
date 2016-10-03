@@ -44,8 +44,8 @@ set $mod Mod4
 set $mainoutput eDP-1
 
 # Put this window on the presentation output.
-bindsym $mod+p move workspace to output VGA1
-bindsym $mod+Shift+p move workspace to output HDMI1
+bindsym $mod+p move workspace to output HDMI-2
+bindsym $mod+Shift+p move workspace to output VGA1
 
 # Put this window on the internal output.
 bindsym $mod+i move workspace to output $mainoutput
@@ -58,7 +58,7 @@ focus_follows_mouse no
 set $up l
 set $down k
 set $left j
-set $right semicolon
+set $right odiaeresis
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -78,29 +78,15 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-# bindsym $mod+$left focus left
-bindsym $mod+j focus left
-
-# bindsym $mod+$down focus down
-bindsym $mod+k focus down
-
-# bindsym $mod+$up focus up
-bindsym $mod+l focus up
-
-# bindsym $mod+$right focus right
-bindsym $mod+odiaeresis focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # move focused window
-# bindsym $mod+Shift+J move left
 bindsym $mod+Shift+$left move left
-
-# bindsym $mod+Shift+K move down
 bindsym $mod+Shift+$down move down
-
-# bindsym $mod+Shift+L move up
 bindsym $mod+Shift+$up move up
-
-# bindsym $mod+Shift+Odiaeresis move right
 bindsym $mod+Shift+$right move right
 
 # split in horizontal orientation

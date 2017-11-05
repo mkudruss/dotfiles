@@ -32,42 +32,32 @@ if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
     fi
 fi
 
-# exporting PGP key
-# export GPGKEY=5C38081A
-
-# exporting PGP key
-# export LANGUAGE="en"
-# export LANG="C"
-# export LC_MESSAGES="C"
+# implement pip tab completion
+eval `pip completion --zsh`
 
 # Python Start Up File
 export PYTHONPATH=$PYTHONPATH:~/workspace/python/myprojects
-export PYTHONPATH=$PYTHONPATH:~/software/vplan/git_trunk/python
-export PYTHONPATH=$PYTHONPATH:~/software/vplan/vplan-src/python
-export PYTHONPATH=$PYTHONPATH:~/software/vplan/examples/quadcopter2d
 
 # pysnopt PATH
 export PYTHONPATH=$PYTHONPATH:~/software/snopt7/python
 
 # pyqpoases PATH
-#export PYTHONPATH=$PYTHONPATH:~/software/qpOASES/interfaces/python
+export PYTHONPATH=$PYTHONPATH:~/software/qpOASES/interfaces/python
+
+# RBDL python model wrapper PATH
+export PYTHONPATH=$PYTHONPATH:~/software/rbdl_model_python_wrapper/build/python
 
 # nlopt PATH
 export PYTHONPATH=$PYTHONPATH:~/software/nlopt-2.3/swig/.libs
+
+# walkerator PATH
+export PYTHONPATH=$PYTHONPATH:~/software/walkerator
 
 # msobox PATH
 export PYTHONPATH=$PYTHONPATH:~/software/msobox
 
 # lpnewton PATH
 export PYTHONPATH=$PYTHONPATH:~/software/lpnewton
-
-# ADOLC Bashvariablen
-#export ADOLC_BASE=~/software/adolc_base
-
-# ADOLC_Kinematic Bashvariablen
-#export ROBOBASE=~/software/adolc_kinematics
-export PATH=$HOME/workspace/work/isios_scriptsuite/bin:$PATH
-export PATH=$HOME/software/vplan/examples/quadcopter2d/realtime/bin:$PATH
 
 # Gurobi Bashvariablen
 export GUROBI_HOME="/home/mkudruss/software/gurobi651/linux64"
@@ -85,16 +75,15 @@ export QORE_DIR=$HOME/software/muscod/Packages/QORE/Debug
 export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Release/bin
 export PATH=$PATH:$MUSCOD_SUITE_BASE/MC2/Debug/bin
 
-# Debug MUSCOD PYTHON INTERFACE
-export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/lib64
-export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/PYTHON
-
 # Release MUSCOD PYTHON INTERFACE
-# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/lib64
-# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/PYTHON
+export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/lib64
+export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Release/PYTHON
+
+# Debug MUSCOD PYTHON INTERFACE
+# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/lib64
+# export PYTHONPATH=$PYTHONPATH:$MUSCOD_SUITE_BASE/Packages/INTERFACES/Debug/PYTHON
 
 # PGPLOT
-# export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Debug
 export PGPLOT_DIR=$MUSCOD_SUITE_BASE/Packages/PGPLOT/Release
 export PGPLOT_FONT=$PGPLOT_DIR/grfont.dat
 export PGPLOT_RGB=$PGPLOT_DIR/rgb.txt
@@ -104,51 +93,41 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PGPLOT_DIR
 # MESHUP Bashvariablen
 export MESHUP_PATH=$HOME/software/meshup/
 
+# YARP path
+# export YARP_DIR=$HOME/software/yarp/build
+# export PATH=$PATH:$YARP_DIR/bin
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$YARP_DIR/lib
+# export YARP_DATA_DIRS=$YARP_DIR/share/yarp
+
+# export ICUB_ROOT=$HOME/software/icub-main/
+# export ICUB_DIR=$ICUB_ROOT/build
+# export YARP_DATA_DIRS=$YARP_DATA_DIRS:$ICUB_DIR/share/iCub/
+# export PATH=$PATH:$ICUB_DIR/bin
+
+# export CODYCO_SUPERBUILD_ROOT=$HOME/software/codyco-superbuild
+# export CODYCO_SUPERBUILD_DIR=$CODYCO_SUPERBUILD_ROOT/build
+# export PATH=$PATH:$CODYCO_SUPERBUILD_DIR/install/bin
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CODYCO_SUPERBUILD_DIR/install/lib
+# export YARP_DATA_DIRS=$YARP_DATA_DIRS:$CODYCO_SUPERBUILD_DIR/install/share/codyco
+
+# IPOPT Bashvariablen
+export IPOPT_PATH=$HOME/software/Ipopt-3.12.6
+
 # RBDL Bashvariablen
 #export RBDL_PATH=$HOME/software/rbdl/
-
-# virtualenv bash variables
-if [ -f /etc/bash_completion.d/virtualenvwrapper ]
-then
-    export WORKON_HOME="$HOME/.virtualenvs"
-    export PROJECT_HOME="$HOME/projects"
-    source /etc/bash_completion.d/virtualenvwrapper
-else
-    echo "not installed: 'virtualenv'"
-    echo "not installed: 'virtualenvwrapper'"
-fi
-
-# VPLAN Bashvariablen
-
-export VPLANHOME=~/software/vplan
-export VPLANROOT=$VPLANHOME/
-export VPLANTARGET=linux
-export VPLANEXAMPLES=$VPLANHOME/examples
-export VPLANMODULES=$VPLANHOME/modules
-export PATH=$PATH:$VPLANROOT$VPLANTARGET/bin:$VPLANROOT$VPLANTARGET/scripts
-
-export GFORTRAN_UNBUFFERED_ALL=y
-
-# ADIFOR Bashvariablen
-export AD_HOME=$VPLANHOME/lib/ADIFOR2.0D
-export AD_LIB=$VPLANHOME/lib/ADIFOR2.0D.lib
-export AD_OS=Linux86
-export PATH=$PATH:$AD_HOME/bin
 
 # TAPENADE Bashvariablen
 export JAVA_HOME=/usr
 export TAPENADE_HOME=~/software/tapenade3.6
 export PATH=$TAPENADE_HOME/bin:$PATH
 
-# Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # ADD ANDROID DEVELOPMENT KIT PATHS
-export PATH=$PATH:$HOME/software/android-sdk-linux/tools
-export PATH=$PATH:$HOME/software/android-sdk-linux/platform-tools
-
-# DYNAMOD Environment
-#source /home/mkudruss/software/DYNAMOD/bin/env/DYNAMOD_env
+export PATH=$PATH:$HOME/Android/Sdk/tools
+export PATH=$PATH:$HOME/Android/Sdk/platform-tools
+export PATH=$PATH:$HOME/Android/Sdk/ndk-bundle
 
 # LEO compiler
 export PATH=$PATH:/home/mkudruss/software/leo_robot/tools/crosstool/gcc-4.1.0-glibc-2.3.6/i686-unknown-linux-gnu/bin/
+
+# implementing ccache
+export PATH="/usr/lib/ccache:$PATH"

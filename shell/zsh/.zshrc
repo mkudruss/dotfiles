@@ -41,3 +41,28 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
+# LOADING PROMPT
+echo "Loading .zshrc"
+
+# pip zsh completion start
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+
+# virtualenv bash variables
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]
+then
+    export WORKON_HOME="$HOME/.virtualenvs"
+    export PROJECT_HOME="$HOME/projects"
+    echo "  sourcing virtualenvwrapper.sh"
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo "not installed: 'virtualenv'"
+    echo "not installed: 'virtualenvwrapper'"
+fi

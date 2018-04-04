@@ -32,9 +32,6 @@ if [[ -z $DBUS_SESSION_BUS_ADDRESS ]]; then
     fi
 fi
 
-# implement pip tab completion
-eval `pip completion --zsh`
-
 # Python Start Up File
 export PYTHONPATH=$PYTHONPATH:~/workspace/python/myprojects
 
@@ -51,7 +48,14 @@ export PYTHONPATH=$PYTHONPATH:~/software/rbdl_model_python_wrapper/build/python
 export PYTHONPATH=$PYTHONPATH:~/software/nlopt-2.3/swig/.libs
 
 # walkerator PATH
-export PYTHONPATH=$PYTHONPATH:~/software/walkerator
+#export PYTHONPATH=$PYTHONPATH:~/software/walkerator
+export PYTHONPATH=$PYTHONPATH:~/software/walkerator_dev
+
+# irispy PATH
+export PYTHONPATH=$PYTHONPATH:~/software/iris-distro/build/install/lib/python3.5/dist-packages/irispy
+
+# msobox PATH
+export PYTHONPATH=$PYTHONPATH:~/Documents/theses/2016_rmichel_dynamic_filter/code
 
 # msobox PATH
 export PYTHONPATH=$PYTHONPATH:~/software/msobox
@@ -60,10 +64,11 @@ export PYTHONPATH=$PYTHONPATH:~/software/msobox
 export PYTHONPATH=$PYTHONPATH:~/software/lpnewton
 
 # Gurobi Bashvariablen
-export GUROBI_HOME="/home/mkudruss/software/gurobi651/linux64"
+# export GUROBI_HOME="/home/mkudruss/software/gurobi651/linux64"
+export GUROBI_HOME='/home/mkudruss/software/gurobi/linux64'
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
-export GRB_LICENSE_FILE="${GUROBI_HOME}/bin/gurobi.lic"
+export GRB_LICENSE_FILE="${GUROBI_HOME}/.gurobi/gurobi.lic"
 
 # MUSCOD Bashvariablen
 export MUSCOD_SUITE_BASE=$HOME/software/muscod

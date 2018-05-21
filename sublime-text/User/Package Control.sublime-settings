@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Advanced CSV",
+		"All Autocomplete",
+		"BracketHighlighter",
+		"CMake",
+		"CMakeBuilder",
+		"Cython+",
+		"Dictionaries",
+		"EditorConfig",
+		"EditorConfigSnippets",
+		"GitGutter",
+		"INI",
+		"Insert Nums",
+		"LaTeX Word Count",
+		"LaTeXTools",
+		"MinimalFortran",
+		"Package Control",
+		"PlainTasks",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"sublime-text-2-buildview",
+		"SublimeCodeIntel",
+		"SublimeGDB",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"SublimeLinter-cppcheck",
+		"SublimeLinter-cpplint",
+		"SublimeLinter-flake8",
+		"SublimeLinter-json",
+		"SublimeLinter-pycodestyle",
+		"SublimeLinter-pydocstyle",
+		"SublimeLinter-pylint",
+		"SublimeLinter-rst",
+		"WordCount"
+	]
+}

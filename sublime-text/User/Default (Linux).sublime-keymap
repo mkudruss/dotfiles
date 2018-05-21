@@ -1,0 +1,57 @@
+[
+    // Toggle Sidebar
+
+    { "keys": ["ctrl+b"], "command": "toggle_side_bar" },
+
+    // Fix for single and block commenting
+
+    { "keys": ["ctrl+7"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+shift+7"], "command": "toggle_comment", "args": { "block": true } },
+
+    // VIM KEY BINDINGS
+
+    // Navigation in Copy Mode
+
+    { "keys": ["h"], "command": ""
+    },
+
+    // { "keys": ["j", "j"],
+    //     "command": "exit_insert_mode",
+    //     "context":
+    //     [
+    //         { "key": "setting.command_mode", "operand": false },
+    //         { "key": "setting.is_widget", "operand": false }
+    //     ]
+    // },
+
+    { "keys": ["j"], "command": "set_motion", "args": {
+        "motion": "vi_move_by_characters_in_line",
+        "motion_args": {"forward": false, "extend": true }},
+        "context": [{"key": "setting.command_mode"}]
+    },
+
+    { "keys": ["k"], "command": "set_motion", "args": {
+        "motion": "move",
+        "motion_args": {"by": "lines", "forward": true, "extend": true },
+        "linewise": true },
+        "context": [{"key": "setting.command_mode"}]
+    },
+
+    { "keys": ["l"], "command": "set_motion", "args": {
+        "motion": "move",
+        "motion_args": {"by": "lines", "forward": false, "extend": true },
+        "linewise": true },
+        "context": [{"key": "setting.command_mode"}]
+    },
+
+    { "keys": ["ö"], "command": "set_motion", "args": {
+        "motion": "vi_move_by_characters_in_line",
+        "motion_args": {"forward": true, "extend": true, "visual": false }},
+        "context": [{"key": "setting.command_mode"}]
+    },
+
+    // Navigate Tabs/Views
+
+    { "keys": ["ctrl+k"], "command": "prev_view" },
+    { "keys": ["ctrl+l"], "command": "next_view" },
+]
